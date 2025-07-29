@@ -2,15 +2,15 @@ package com.app.service.impl;
 
 import java.io.IOException;
 
-import org.apache.tomcat.jni.FileInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.account.repository.FileRepository;
 import com.app.entity.MediaItem;
+import com.app.model.FileInfo;
 import com.app.model.enums.MediaType;
 import com.app.model.response.FileData;
 import com.app.model.response.FileResponse;
+import com.app.repository.FileRepository;
 import com.app.repository.MediaRepository;
 import com.app.service.FileService;
 
@@ -35,8 +35,6 @@ public class FileServiceImpl implements FileService{
 	        // Create file management info
 	        MediaItem media = MediaItem.builder()
 	        		.contentType(fileInfo.getContentType())
-	        		.objectId(null)
-	        		.objectType(null)
 	        		.type(MediaType.IMAGE)
 	        		.url(fileInfo.getUrl())
 	        		.title(fileInfo.getName())

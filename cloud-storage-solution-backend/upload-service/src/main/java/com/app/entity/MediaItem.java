@@ -1,7 +1,6 @@
 package com.app.entity;
 
 import com.app.model.enums.MediaType;
-import com.core.enums.MediaObjectType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -25,8 +24,6 @@ public class MediaItem extends BaseEntity {
 	private MediaType type;
 	private String url;
 	private String contentType;
-	@Enumerated(EnumType.STRING)
-	private MediaObjectType objectType;
 	private Long objectId;
 	private String path;
 	private String thumbnailPath;
