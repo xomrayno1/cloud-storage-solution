@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+     
+     
+     <changeSet id="create_table_customer123" author="tamnc">
+		<sql>
+			
+			insert into customer(status, customer_name) values(1, "tamnc");
+		</sql>
+	 </changeSet>
+	 
+	 <changeSet id="file_metadata_entity" author="tamnc">
+		<sql>
+			CREATE TABLE file_metadata_entity (
+			 id varchar(255) NOT NULL,
+			 date_uploaded timestamp(6) NULL,
+			 http_content_type varchar(255) NULL,
+			 original_name varchar(255) NULL,
+			 size bigint(20) NOT NULL,
+			 			  PRIMARY KEY (`id`)
+			);
+		</sql>
+	 </changeSet>
+	 
+	 
+	 <changeSet id="create_table_media_1x" author="tamnc">
+		<sql>
+			
+			CREATE TABLE `account-service`.`media` (
+			  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+			  `type` VARCHAR(45) NULL,
+			  `title` VARCHAR(500) NULL,
+			  `url` VARCHAR(500) NULL,
+			  `content_type` VARCHAR(45) NULL,
+			  `object_type` VARCHAR(45) NULL,
+			  `object_id` BIGINT(20) NULL,
+			  `thumbnail_path` VARCHAR(500) NULL,
+			  `thumbnail_url` VARCHAR(500) NULL,
+			  `path` VARCHAR(500) NULL,
+			  `created_date` DATETIME NULL,
+			  `created_by` VARCHAR(45) NULL,
+			  `updated_date` DATETIME NULL,
+			  `updated_by` VARCHAR(45) NULL,
+			  `status` int,
+			  PRIMARY KEY (`id`)
+			);
+
+		</sql>
+	 </changeSet>
+	 
+	 	 <changeSet id="create_Address" author="tamnc">
+		<sql>
+			
+			CREATE TABLE `account-service`.`address` (
+			  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+			  `full_address` VARCHAR(45) NULL,
+			  `customer_id` BIGINT(20) NULL,
+			  `created_date` DATETIME NULL,
+			  `created_by` VARCHAR(45) NULL,
+			  `updated_date` DATETIME NULL,
+			  `updated_by` VARCHAR(45) NULL,
+			  `status` int,
+			  PRIMARY KEY (`id`)
+			);
+
+		</sql>
+	 </changeSet>
+	 
+</databaseChangeLog>

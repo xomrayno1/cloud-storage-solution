@@ -1,0 +1,1 @@
+insert into customer(status, customer_name) values(1, "tamnc");

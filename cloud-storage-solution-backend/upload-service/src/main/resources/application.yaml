@@ -1,0 +1,47 @@
+server:
+  port: 9002
+
+spring:
+  profiles:
+    active: true
+  servlet:
+    multipart:
+      max-file-size: 10000MB
+      max-request-size: 10000MB
+  application:
+    name: upload-service
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
+    enabled: true
+  datasource:
+    url:  ${CONFIG_SERVER_DB_URL:jdbc:mysql://localhost:3308/account-service}?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
+    username: ${CONFIG_SERVER_DB_USERNAME:root}
+    password: ${CONFIG_SERVER_DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    open-in-view: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none                 
+
+minio: # should match docker-compose.yml
+  url: http://localhost:9000
+  username: admin
+  password: AdminPW!
+  put-object-part-size: 5242880
+            
+springdoc:
+  api-docs:
+    path: /swagger-ui.html
+
+app:
+  file:
+    storage-dir: ${FILE_STORAGE_DIR:/Users/tamnc/Documents/Local/ecommerce-backend/AccountService/uploads/image}
+    download-prefix: ${FILE_DOWNLOAD_PREFIX:http://localhost:9002/api/v1/account/file/file_download}
+
+upload:
+    default-chunk-size: 3145728 #value in bytes
+    
+   
