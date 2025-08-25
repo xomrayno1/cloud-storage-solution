@@ -2,7 +2,7 @@ Techstack: spring/mysql/react/docker/minio|aws <br>
 
 Upload & File Management: <br>
 - POST /upload/initiate -> start a new file upload session and return an upload id
-- PUT /upload/{id}/chunk -> uploads a chunk for the give upload id
+- PUT /upload/{id}/put -> uploads a chunk for the give upload id
 - POST /upload/{id}/complete -> finalizes upload, assembles file triggers post-processing
 
 File Retrieval & Metadata <br> 
